@@ -1,0 +1,255 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background var(--duration-mid) var(--ease-elegant),
+              border-color var(--duration-mid) var(--ease-elegant),
+              box-shadow var(--duration-mid) var(--ease-elegant);
+  height: var(--navbar-height);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.navbar.scrolled {
+  background: rgba(248, 242, 234, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Logo */
+.logo { text-decoration: none; display: flex; align-items: center; }
+
+/* Circle container — clips to show only the DY monogram, hides the text below */
+.logoCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid rgba(248, 242, 234, 0.85);
+  transition: border-color var(--duration-mid) var(--ease-elegant),
+              box-shadow var(--duration-mid) var(--ease-elegant);
+  flex-shrink: 0;
+}
+.logoCircle:hover {
+  border-color: rgba(248, 242, 234, 0.6);
+  box-shadow: 0 0 0 3px rgba(248, 242, 234, 0.1);
+}
+
+/* Scrolled state: border becomes dark-tone on light bg */
+.logoCircleScrolled {
+  border-color: rgba(30, 22, 14, 0.25);
+}
+.logoCircleScrolled:hover {
+  border-color: rgba(30, 22, 14, 0.5);
+  box-shadow: 0 0 0 3px rgba(30, 22, 14, 0.06);
+}
+
+/* The image fills the circle but is scaled and shifted up to crop out the bottom text */
+.logoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  display: block;
+}
+
+/* Desktop Nav */
+.desktopNav {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.navLink {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(248, 242, 234, 0.8);
+  transition: color var(--duration-fast) var(--ease-elegant);
+  position: relative;
+}
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--duration-mid) var(--ease-elegant);
+}
+.navLink:hover { color: var(--color-ivory); }
+.navLink:hover::after { width: 100%; }
+.navbar.scrolled .navLink { color: var(--color-stone); }
+.navbar.scrolled .navLink:hover { color: var(--color-espresso); }
+
+/* CTA Button */
+.ctaBtn {
+  font-size: 0.65rem !important;
+  padding: 0.65rem 1.5rem !important;
+  background: rgba(248, 242, 234, 0.15) !important;
+  color: var(--color-ivory) !important;
+  border: 1px solid rgba(248, 242, 234, 0.85) !important;
+  transition: all var(--duration-mid) var(--ease-elegant) !important;
+}
+.ctaBtn:hover {
+  background: var(--color-ivory) !important;
+  color: var(--color-espresso) !important;
+  border-color: var(--color-ivory) !important;
+}
+.navbar.scrolled .ctaBtn {
+  background: var(--color-espresso) !important;
+  color: var(--color-ivory) !important;
+  border-color: var(--color-espresso) !important;
+}
+.navbar.scrolled .ctaBtn:hover {
+  background: var(--color-champagne) !important;
+  border-color: var(--color-champagne) !important;
+  color: var(--color-espresso) !important;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--color-ivory);
+  transform-origin: center;
+  transition: transform var(--duration-mid) var(--ease-elegant),
+              opacity var(--duration-mid) var(--ease-elegant),
+              background var(--duration-mid) var(--ease-elegant);
+}
+.navbar.scrolled .hamburger span { background: var(--color-espresso); }
+.hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--color-espresso);
+  display: none;
+  flex-direction: column;
+}
+.mobileMenuInner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 var(--container-padding);
+}
+.mobileMenuTop {
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.closeBtn {
+  background: none;
+  border: none;
+  color: var(--color-ivory);
+  cursor: pointer;
+  padding: 8px;
+}
+.mobileNavList {
+  list-style: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 2rem 0;
+}
+.mobileNavLink {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  text-decoration: none;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(248, 242, 234, 0.08);
+  transition: gap var(--duration-mid) var(--ease-elegant);
+}
+.mobileNavLink:hover { gap: 1.5rem; }
+.mobileNavIndex {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--color-champagne);
+}
+.mobileNavLink span:last-child {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 400;
+  color: var(--color-ivory);
+  letter-spacing: -0.01em;
+  transition: color var(--duration-fast);
+}
+.mobileNavLink:hover span:last-child { color: var(--color-champagne); }
+.mobileMenuFooter {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.mobileTagline {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+
+.mobileLogoCircle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid rgba(248, 242, 234, 0.85);
+  flex-shrink: 0;
+}
+
+.mobileLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .desktopNav, .ctaBtn { display: none; }
+  .hamburger { display: flex; }
+}
+@media (min-width: 1025px) {
+  .mobileMenu { display: none !important; }
+}
+
+

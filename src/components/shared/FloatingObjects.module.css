@@ -1,0 +1,116 @@
+.container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.obj {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+/* Hero variant */
+.hero .sphere1 {
+  width: 180px; height: 180px;
+  background: radial-gradient(135deg, #C8A882 0%, #A88060 50%, #7A5840 100%);
+  box-shadow: inset -20px -20px 40px rgba(0,0,0,0.3), 0 20px 60px rgba(200,164,92,0.2);
+  top: 20%; right: 15%;
+}
+.hero .ring1 {
+  width: 100px; height: 100px;
+  border: 12px solid rgba(200, 184, 160, 0.4);
+  background: transparent;
+  box-shadow: inset 0 0 20px rgba(200, 184, 160, 0.1);
+  top: 60%; right: 30%;
+}
+.hero .disc1 {
+  width: 80px; height: 20px;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #EDE0CE, #C8A882);
+  box-shadow: 0 8px 30px rgba(200,168,130,0.3);
+  bottom: 30%; right: 20%;
+}
+.hero .orb1 {
+  width: 40px; height: 40px;
+  background: radial-gradient(135deg, #D4A8A0, #B87870);
+  box-shadow: 0 4px 20px rgba(212,168,160,0.4);
+  top: 35%; right: 40%;
+}
+.hero .orb2 {
+  width: 25px; height: 25px;
+  background: radial-gradient(135deg, #C8A45C, #A88040);
+  box-shadow: 0 4px 16px rgba(200,164,92,0.5);
+  bottom: 45%; right: 10%;
+}
+.hero .orb3 {
+  width: 35px; height: 35px;
+  background: radial-gradient(135deg, #EDE0CE, #D4B896);
+  box-shadow: 0 4px 20px rgba(212,184,150,0.4);
+  top: 75%; right: 45%;
+}
+
+/* About variant */
+.about .sphere1 {
+  width: 120px; height: 120px;
+  background: radial-gradient(135deg, #D4B896 0%, #C8A882 50%, #A88060 100%);
+  box-shadow: inset -15px -15px 30px rgba(0,0,0,0.15), 0 15px 50px rgba(200,168,130,0.25);
+  top: 15%; left: 50%; transform: translateX(-50%);
+}
+.about .ring1 {
+  width: 70px; height: 70px;
+  border: 8px solid rgba(200, 168, 130, 0.35);
+  background: transparent;
+  bottom: 25%; right: 10%;
+}
+.about .disc1 {
+  width: 60px; height: 16px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #EDE0CE, #C8B4A0);
+  box-shadow: 0 6px 20px rgba(200,168,130,0.25);
+  top: 55%; left: 10%;
+}
+.about .orb1 {
+  width: 30px; height: 30px;
+  background: radial-gradient(135deg, #D4A8A0, #C89090);
+  top: 35%; right: 5%;
+}
+.about .orb2 {
+  width: 18px; height: 18px;
+  background: radial-gradient(135deg, #C8A45C, #A88040);
+  bottom: 40%; left: 20%;
+}
+.about .orb3 {
+  width: 24px; height: 24px;
+  background: radial-gradient(135deg, #B8C4B0, #98A490);
+  top: 70%; right: 30%;
+}
+
+/* Lines */
+.line1 {
+  position: absolute;
+  width: 1px;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, rgba(200,168,130,0.2), transparent);
+  top: 20%; right: 25%;
+}
+.line2 {
+  position: absolute;
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(200,168,130,0.15), transparent);
+  top: 60%; left: 15%;
+}
+
+/* Minimal variant */
+.minimal .sphere1 {
+  width: 80px; height: 80px;
+  background: radial-gradient(135deg, #C8A882, #A87860);
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.15), 0 10px 30px rgba(200,168,130,0.2);
+  top: 20%; right: 10%;
+}
+.minimal .ring1, .minimal .disc1, .minimal .orb1, .minimal .orb2, .minimal .orb3 {
+  display: none;
+}
+

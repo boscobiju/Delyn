@@ -1,0 +1,109 @@
+.section {
+  background: var(--bg-primary);
+  padding: clamp(7rem, 14vw, 14rem) 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.bgGlow1 {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(200, 168, 130, 0.08) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.bgGlow2 {
+  position: absolute;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(212, 168, 160, 0.06) 0%, transparent 70%);
+  top: 20%;
+  right: 10%;
+  border-radius: 50%;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+  max-width: 900px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.1s var(--ease-elegant), transform 1.1s var(--ease-elegant);
+}
+.content.visible { opacity: 1; transform: translateY(0); }
+
+.line1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.sepLine {
+  width: 60px;
+  height: 1px;
+  background: var(--border-medium);
+}
+.sepDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-champagne);
+}
+
+.line2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 2.5rem;
+}
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-champagne);
+  margin-bottom: 3rem;
+}
+
+.cta {
+  font-size: 0.75rem !important;
+  padding: 1.1rem 3rem !important;
+}
+
+@media (max-width: 768px) {
+  .line1, .line2 { font-size: clamp(1.6rem, 7vw, 3rem); }
+}
+

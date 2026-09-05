@@ -1,0 +1,162 @@
+.section {
+  height: 250vh;
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  transition: background 0.8s var(--ease-elegant);
+  pointer-events: none;
+}
+
+.topLabel {
+  position: absolute;
+  top: 2rem;
+  left: var(--container-padding);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.stageDots {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(248, 242, 234, 0.85);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.dotActive {
+  background: var(--color-champagne);
+  transform: scale(1.5);
+}
+
+.content {
+  max-width: 680px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 1.5rem;
+  transition: color 0.5s ease;
+}
+
+.word {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 14vw, 12rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  transition: color 0.5s ease;
+  animation: wordReveal 0.6s var(--ease-elegant) both;
+}
+
+@keyframes wordReveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-ivory);
+  margin-bottom: 1.5rem;
+  animation: wordReveal 0.6s var(--ease-elegant) 0.15s both;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 400;
+  color: rgba(248, 242, 234, 0.6);
+  line-height: 1.85;
+  max-width: 480px;
+  margin-bottom: 3rem;
+  animation: wordReveal 0.6s var(--ease-elegant) 0.25s both;
+}
+
+.stageNav {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.stageBtn {
+  background: transparent;
+  color: rgba(248, 242, 234, 0.85);
+  border: 1px solid rgba(248, 242, 234, 0.12);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.3s var(--ease-elegant);
+}
+.stageBtnActive {
+  color: var(--color-ivory);
+  border-color: currentColor;
+  background: rgba(248, 242, 234, 0.06);
+}
+.stageBtn:hover { color: var(--color-ivory); }
+
+.ambient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5rem;
+}
+.ambientNum {
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 20vw, 18rem);
+  font-weight: 400;
+  opacity: 0.05;
+  line-height: 1;
+  transition: color 0.5s ease, opacity 0.5s ease;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .section { height: 300vh; }
+  .inner { grid-template-columns: 1fr; }
+  .ambient { display: none; }
+  .stageDots { right: 1rem; }
+  .topLabel { left: var(--container-padding); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word, .headline, .body { animation: none; opacity: 1; transform: none; }
+  .bg { transition: none; }
+}
+
