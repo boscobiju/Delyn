@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useInView } from '../hooks/useInView'
 import { discoveryProducts, globalMarkets } from '../../config/brand'
 import styles from './Discovery.module.css'

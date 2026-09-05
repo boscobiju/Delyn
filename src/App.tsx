@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react'
+import { useState, useEffect } from 'react'
 import './index.css'
 
 import LoadingScreen from './components/LoadingScreen/LoadingScreen'
